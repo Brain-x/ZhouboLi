@@ -1,0 +1,401 @@
+
+% Default to the notebook output style
+
+    
+
+
+% Inherit from the specified cell style.
+
+
+
+
+    
+\documentclass[11pt]{article}
+
+    
+    
+    \usepackage[T1]{fontenc}
+    % Nicer default font (+ math font) than Computer Modern for most use cases
+    \usepackage{mathpazo}
+
+    % Basic figure setup, for now with no caption control since it's done
+    % automatically by Pandoc (which extracts ![](path) syntax from Markdown).
+    \usepackage{graphicx}
+    % We will generate all images so they have a width \maxwidth. This means
+    % that they will get their normal width if they fit onto the page, but
+    % are scaled down if they would overflow the margins.
+    \makeatletter
+    \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth
+    \else\Gin@nat@width\fi}
+    \makeatother
+    \let\Oldincludegraphics\includegraphics
+    % Set max figure width to be 80% of text width, for now hardcoded.
+    \renewcommand{\includegraphics}[1]{\Oldincludegraphics[width=.8\maxwidth]{#1}}
+    % Ensure that by default, figures have no caption (until we provide a
+    % proper Figure object with a Caption API and a way to capture that
+    % in the conversion process - todo).
+    \usepackage{caption}
+    \DeclareCaptionLabelFormat{nolabel}{}
+    \captionsetup{labelformat=nolabel}
+
+    \usepackage{adjustbox} % Used to constrain images to a maximum size 
+    \usepackage{xcolor} % Allow colors to be defined
+    \usepackage{enumerate} % Needed for markdown enumerations to work
+    \usepackage{geometry} % Used to adjust the document margins
+    \usepackage{amsmath} % Equations
+    \usepackage{amssymb} % Equations
+    \usepackage{textcomp} % defines textquotesingle
+    % Hack from http://tex.stackexchange.com/a/47451/13684:
+    \AtBeginDocument{%
+        \def\PYZsq{\textquotesingle}% Upright quotes in Pygmentized code
+    }
+    \usepackage{upquote} % Upright quotes for verbatim code
+    \usepackage{eurosym} % defines \euro
+    \usepackage[mathletters]{ucs} % Extended unicode (utf-8) support
+    \usepackage[utf8x]{inputenc} % Allow utf-8 characters in the tex document
+    \usepackage{fancyvrb} % verbatim replacement that allows latex
+    \usepackage{grffile} % extends the file name processing of package graphics 
+                         % to support a larger range 
+    % The hyperref package gives us a pdf with properly built
+    % internal navigation ('pdf bookmarks' for the table of contents,
+    % internal cross-reference links, web links for URLs, etc.)
+    \usepackage{hyperref}
+    \usepackage{longtable} % longtable support required by pandoc >1.10
+    \usepackage{booktabs}  % table support for pandoc > 1.12.2
+    \usepackage[inline]{enumitem} % IRkernel/repr support (it uses the enumerate* environment)
+    \usepackage[normalem]{ulem} % ulem is needed to support strikethroughs (\sout)
+                                % normalem makes italics be italics, not underlines
+    
+
+    
+    
+    % Colors for the hyperref package
+    \definecolor{urlcolor}{rgb}{0,.145,.698}
+    \definecolor{linkcolor}{rgb}{.71,0.21,0.01}
+    \definecolor{citecolor}{rgb}{.12,.54,.11}
+
+    % ANSI colors
+    \definecolor{ansi-black}{HTML}{3E424D}
+    \definecolor{ansi-black-intense}{HTML}{282C36}
+    \definecolor{ansi-red}{HTML}{E75C58}
+    \definecolor{ansi-red-intense}{HTML}{B22B31}
+    \definecolor{ansi-green}{HTML}{00A250}
+    \definecolor{ansi-green-intense}{HTML}{007427}
+    \definecolor{ansi-yellow}{HTML}{DDB62B}
+    \definecolor{ansi-yellow-intense}{HTML}{B27D12}
+    \definecolor{ansi-blue}{HTML}{208FFB}
+    \definecolor{ansi-blue-intense}{HTML}{0065CA}
+    \definecolor{ansi-magenta}{HTML}{D160C4}
+    \definecolor{ansi-magenta-intense}{HTML}{A03196}
+    \definecolor{ansi-cyan}{HTML}{60C6C8}
+    \definecolor{ansi-cyan-intense}{HTML}{258F8F}
+    \definecolor{ansi-white}{HTML}{C5C1B4}
+    \definecolor{ansi-white-intense}{HTML}{A1A6B2}
+
+    % commands and environments needed by pandoc snippets
+    % extracted from the output of `pandoc -s`
+    \providecommand{\tightlist}{%
+      \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+    % Add ',fontsize=\small' for more characters per line
+    \newenvironment{Shaded}{}{}
+    \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+    \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+    \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+    \newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+    \newcommand{\RegionMarkerTok}[1]{{#1}}
+    \newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\NormalTok}[1]{{#1}}
+    
+    % Additional commands for more recent versions of Pandoc
+    \newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{{#1}}}
+    \newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{{#1}}}
+    \newcommand{\ImportTok}[1]{{#1}}
+    \newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{{#1}}}}
+    \newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{{#1}}}
+    \newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{{#1}}}
+    \newcommand{\BuiltInTok}[1]{{#1}}
+    \newcommand{\ExtensionTok}[1]{{#1}}
+    \newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{{#1}}}
+    \newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{{#1}}}
+    \newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    
+    
+    % Define a nice break command that doesn't care if a line doesn't already
+    % exist.
+    \def\br{\hspace*{\fill} \\* }
+    % Math Jax compatability definitions
+    \def\gt{>}
+    \def\lt{<}
+    % Document parameters
+    \title{Untitled3}
+    
+    
+    
+
+    % Pygments definitions
+    
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\expandafter\def\csname PY@tok@w\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\expandafter\def\csname PY@tok@c\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.74,0.48,0.00}{##1}}}
+\expandafter\def\csname PY@tok@k\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ow\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@ne\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.82,0.25,0.23}{##1}}}
+\expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ni\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
+\expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.49,0.56,0.16}{##1}}}
+\expandafter\def\csname PY@tok@nt\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@s\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@si\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@se\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@ss\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@gh\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gu\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gr\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ge\endcsname{\let\PY@it=\textit}
+\expandafter\def\csname PY@tok@gs\endcsname{\let\PY@bf=\textbf}
+\expandafter\def\csname PY@tok@gp\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@go\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\expandafter\def\csname PY@tok@gt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\expandafter\def\csname PY@tok@err\endcsname{\def\PY@bc##1{\setlength{\fboxsep}{0pt}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}
+\expandafter\def\csname PY@tok@kc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kd\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kr\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@bp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@fm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sa\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@dl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@s2\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@s1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@mb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ch\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cm\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cpf\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cs\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+    % Exact colors from NB
+    \definecolor{incolor}{rgb}{0.0, 0.0, 0.5}
+    \definecolor{outcolor}{rgb}{0.545, 0.0, 0.0}
+
+
+
+    
+    % Prevent overflowing lines due to hard-to-break entities
+    \sloppy 
+    % Setup hyperref package
+    \hypersetup{
+      breaklinks=true,  % so long urls are correctly broken across lines
+      colorlinks=true,
+      urlcolor=urlcolor,
+      linkcolor=linkcolor,
+      citecolor=citecolor,
+      }
+    % Slightly bigger margins than the latex defaults
+    
+    \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+    
+    
+
+    \begin{document}
+    
+    
+    \maketitle
+    
+    
+
+    
+    \section{使用MCMC中的Metropolis-Hasting方法进行随机抽样}\label{ux4f7fux7528mcmcux4e2dux7684metropolis-hastingux65b9ux6cd5ux8fdbux884cux968fux673aux62bdux6837}
+
+    \subsection{一.马尔科夫链的一般结构}\label{ux4e00.ux9a6cux5c14ux79d1ux592bux94feux7684ux4e00ux822cux7ed3ux6784}
+
+\subsubsection{\texorpdfstring{马尔科夫链是一条状态链，可表示为\(\{\pi(1),\pi(2)\cdots \pi(i),\pi(j)\cdots\}\)，结合概率论的内容，可将某概率密度函数表示为如下形式：\[\lim_{n\to+\infty}\{\cdots ，\pi(-\frac{2}{n}),\pi(-\frac{1}{n}),\pi(0),\pi(\frac{1}{n}),\pi(\frac{2}{n}),\cdots\}\]且满足\[\int_{-\infty}^{+\infty} \pi(x)dx=1\]}{马尔科夫链是一条状态链，可表示为\textbackslash{}\{\textbackslash{}pi(1),\textbackslash{}pi(2)\textbackslash{}cdots \textbackslash{}pi(i),\textbackslash{}pi(j)\textbackslash{}cdots\textbackslash{}\}，结合概率论的内容，可将某概率密度函数表示为如下形式：\textbackslash{}lim\_\{n\textbackslash{}to+\textbackslash{}infty\}\textbackslash{}\{\textbackslash{}cdots ，\textbackslash{}pi(-\textbackslash{}frac\{2\}\{n\}),\textbackslash{}pi(-\textbackslash{}frac\{1\}\{n\}),\textbackslash{}pi(0),\textbackslash{}pi(\textbackslash{}frac\{1\}\{n\}),\textbackslash{}pi(\textbackslash{}frac\{2\}\{n\}),\textbackslash{}cdots\textbackslash{}\}且满足\textbackslash{}int\_\{-\textbackslash{}infty\}\^{}\{+\textbackslash{}infty\} \textbackslash{}pi(x)dx=1}}\label{ux9a6cux5c14ux79d1ux592bux94feux662fux4e00ux6761ux72b6ux6001ux94feux53efux8868ux793aux4e3api1pi2cdots-piipijcdotsux7ed3ux5408ux6982ux7387ux8bbaux7684ux5185ux5bb9ux53efux5c06ux67d0ux6982ux7387ux5bc6ux5ea6ux51fdux6570ux8868ux793aux4e3aux5982ux4e0bux5f62ux5f0flim_ntoinftycdots-pi-frac2npi-frac1npi0pifrac1npifrac2ncdotsux4e14ux6ee1ux8db3int_-inftyinfty-pixdx1}
+
+\subsubsection{\texorpdfstring{状态链的转移通过转移概率矩阵\(P=\{p_{ij}\}\)实现，\(P\)的结构如下:}{状态链的转移通过转移概率矩阵P=\textbackslash{}\{p\_\{ij\}\textbackslash{}\}实现，P的结构如下:}}\label{ux72b6ux6001ux94feux7684ux8f6cux79fbux901aux8fc7ux8f6cux79fbux6982ux7387ux77e9ux9635pp_ijux5b9eux73b0pux7684ux7ed3ux6784ux5982ux4e0b}
+
+\subsubsection{\texorpdfstring{\[
+        \left (\begin{matrix}
+        p_{11} & p_{12} & \cdots &p_{1j}& \cdots  \\
+        p_{21}  & p_{22} & \cdots &p_{2j}& \cdots \\
+        \vdots & \vdots & \ddots & \vdots & \cdots \\
+        p_{i1} & p_{i2} & \cdots & p_{ij} & \cdots \\
+        \vdots & \vdots & \vdots & \vdots & \ddots \\
+        \end{matrix} \right)
+  \]}{
+        \textbackslash{}left (\textbackslash{}begin\{matrix\}
+        p\_\{11\} \& p\_\{12\} \& \textbackslash{}cdots \&p\_\{1j\}\& \textbackslash{}cdots  \textbackslash{}\textbackslash{}
+        p\_\{21\}  \& p\_\{22\} \& \textbackslash{}cdots \&p\_\{2j\}\& \textbackslash{}cdots \textbackslash{}\textbackslash{}
+        \textbackslash{}vdots \& \textbackslash{}vdots \& \textbackslash{}ddots \& \textbackslash{}vdots \& \textbackslash{}cdots \textbackslash{}\textbackslash{}
+        p\_\{i1\} \& p\_\{i2\} \& \textbackslash{}cdots \& p\_\{ij\} \& \textbackslash{}cdots \textbackslash{}\textbackslash{}
+        \textbackslash{}vdots \& \textbackslash{}vdots \& \textbackslash{}vdots \& \textbackslash{}vdots \& \textbackslash{}ddots \textbackslash{}\textbackslash{}
+        \textbackslash{}end\{matrix\} \textbackslash{}right)
+  }}\label{left-beginmatrix-p_11-p_12-cdots-p_1j-cdots-p_21-p_22-cdots-p_2j-cdots-vdots-vdots-ddots-vdots-cdots-p_i1-p_i2-cdots-p_ij-cdots-vdots-vdots-vdots-vdots-ddots-endmatrix-right}
+
+\subsubsection{\texorpdfstring{其中每行元素满足和式\[\sum_{j=1}^{\infty} p_{ij}=1\]}{其中每行元素满足和式\textbackslash{}sum\_\{j=1\}\^{}\{\textbackslash{}infty\} p\_\{ij\}=1}}\label{ux5176ux4e2dux6bcfux884cux5143ux7d20ux6ee1ux8db3ux548cux5f0fsum_j1infty-p_ij1}
+
+\subsubsection{\texorpdfstring{转移概率矩阵若不为n阶幂等矩阵，则称具有该转移概率矩阵的马尔科夫过程具有遍历性，否则具有循环性，具有遍历性的马尔科夫过程，满足性质\[\lim_{n\to+\infty}p_{ij}^n=\bar\pi(j)\]可知\(P^n\)中元素只与列有关，格式如下：}{转移概率矩阵若不为n阶幂等矩阵，则称具有该转移概率矩阵的马尔科夫过程具有遍历性，否则具有循环性，具有遍历性的马尔科夫过程，满足性质\textbackslash{}lim\_\{n\textbackslash{}to+\textbackslash{}infty\}p\_\{ij\}\^{}n=\textbackslash{}bar\textbackslash{}pi(j)可知P\^{}n中元素只与列有关，格式如下：}}\label{ux8f6cux79fbux6982ux7387ux77e9ux9635ux82e5ux4e0dux4e3anux9636ux5e42ux7b49ux77e9ux9635ux5219ux79f0ux5177ux6709ux8be5ux8f6cux79fbux6982ux7387ux77e9ux9635ux7684ux9a6cux5c14ux79d1ux592bux8fc7ux7a0bux5177ux6709ux904dux5386ux6027ux5426ux5219ux5177ux6709ux5faaux73afux6027ux5177ux6709ux904dux5386ux6027ux7684ux9a6cux5c14ux79d1ux592bux8fc7ux7a0bux6ee1ux8db3ux6027ux8d28lim_ntoinftyp_ijnbarpijux53efux77e5pnux4e2dux5143ux7d20ux53eaux4e0eux5217ux6709ux5173ux683cux5f0fux5982ux4e0b}
+
+\subsubsection{\texorpdfstring{\[
+        \left (\begin{matrix}
+        \bar\pi(1) & \bar\pi(2) & \cdots &\bar\pi(j)& \cdots  \\
+        \bar\pi(1)  & \bar\pi(2) & \cdots &\bar\pi(j)& \cdots \\
+        \vdots & \vdots & \ddots & \vdots & \cdots \\
+       \bar\pi(1) & \bar\pi(2) & \cdots & \bar\pi(j) & \cdots \\
+        \vdots & \vdots & \vdots & \vdots & \ddots \\
+        \end{matrix} \right)\]}{
+        \textbackslash{}left (\textbackslash{}begin\{matrix\}
+        \textbackslash{}bar\textbackslash{}pi(1) \& \textbackslash{}bar\textbackslash{}pi(2) \& \textbackslash{}cdots \&\textbackslash{}bar\textbackslash{}pi(j)\& \textbackslash{}cdots  \textbackslash{}\textbackslash{}
+        \textbackslash{}bar\textbackslash{}pi(1)  \& \textbackslash{}bar\textbackslash{}pi(2) \& \textbackslash{}cdots \&\textbackslash{}bar\textbackslash{}pi(j)\& \textbackslash{}cdots \textbackslash{}\textbackslash{}
+        \textbackslash{}vdots \& \textbackslash{}vdots \& \textbackslash{}ddots \& \textbackslash{}vdots \& \textbackslash{}cdots \textbackslash{}\textbackslash{}
+       \textbackslash{}bar\textbackslash{}pi(1) \& \textbackslash{}bar\textbackslash{}pi(2) \& \textbackslash{}cdots \& \textbackslash{}bar\textbackslash{}pi(j) \& \textbackslash{}cdots \textbackslash{}\textbackslash{}
+        \textbackslash{}vdots \& \textbackslash{}vdots \& \textbackslash{}vdots \& \textbackslash{}vdots \& \textbackslash{}ddots \textbackslash{}\textbackslash{}
+        \textbackslash{}end\{matrix\} \textbackslash{}right)}}\label{left-beginmatrix-barpi1-barpi2-cdots-barpij-cdots-barpi1-barpi2-cdots-barpij-cdots-vdots-vdots-ddots-vdots-cdots-barpi1-barpi2-cdots-barpij-cdots-vdots-vdots-vdots-vdots-ddots-endmatrix-right}
+
+    \subsection{二.稳定状态链的基本概念}\label{ux4e8c.ux7a33ux5b9aux72b6ux6001ux94feux7684ux57faux672cux6982ux5ff5}
+
+\subsubsection{由马尔科夫过程具有极限状态，可知马尔科夫链的稳态条件满足：}\label{ux7531ux9a6cux5c14ux79d1ux592bux8fc7ux7a0bux5177ux6709ux6781ux9650ux72b6ux6001ux53efux77e5ux9a6cux5c14ux79d1ux592bux94feux7684ux7a33ux6001ux6761ux4ef6ux6ee1ux8db3}
+
+\subsubsection{\texorpdfstring{\[ 
+         \left (\begin{matrix}
+        \bar\pi(1)\\ \bar\pi(2) \\ \vdots \\ \bar\pi(j)\\ \vdots  \\
+        \end{matrix} \right)^{-1}
+        \left (\begin{matrix}
+        p_{11} & p_{12} & \cdots &p_{1j}& \cdots  \\
+        p_{21}  & p_{22} & \cdots &p_{2j}& \cdots \\
+        \vdots & \vdots & \ddots & \vdots & \cdots \\
+        p_{i1} & p_{i2} & \cdots & p_{ij} & \cdots \\
+        \vdots & \vdots & \vdots & \vdots & \ddots \\
+        \end{matrix} \right)=
+         \left (\begin{matrix}
+        \bar\pi(1)\\ \bar\pi(2) \\ \vdots \\ \bar\pi(j)\\ \vdots  \\
+        \end{matrix} \right)^{-1}
+        \]}{ 
+         \textbackslash{}left (\textbackslash{}begin\{matrix\}
+        \textbackslash{}bar\textbackslash{}pi(1)\textbackslash{}\textbackslash{} \textbackslash{}bar\textbackslash{}pi(2) \textbackslash{}\textbackslash{} \textbackslash{}vdots \textbackslash{}\textbackslash{} \textbackslash{}bar\textbackslash{}pi(j)\textbackslash{}\textbackslash{} \textbackslash{}vdots  \textbackslash{}\textbackslash{}
+        \textbackslash{}end\{matrix\} \textbackslash{}right)\^{}\{-1\}
+        \textbackslash{}left (\textbackslash{}begin\{matrix\}
+        p\_\{11\} \& p\_\{12\} \& \textbackslash{}cdots \&p\_\{1j\}\& \textbackslash{}cdots  \textbackslash{}\textbackslash{}
+        p\_\{21\}  \& p\_\{22\} \& \textbackslash{}cdots \&p\_\{2j\}\& \textbackslash{}cdots \textbackslash{}\textbackslash{}
+        \textbackslash{}vdots \& \textbackslash{}vdots \& \textbackslash{}ddots \& \textbackslash{}vdots \& \textbackslash{}cdots \textbackslash{}\textbackslash{}
+        p\_\{i1\} \& p\_\{i2\} \& \textbackslash{}cdots \& p\_\{ij\} \& \textbackslash{}cdots \textbackslash{}\textbackslash{}
+        \textbackslash{}vdots \& \textbackslash{}vdots \& \textbackslash{}vdots \& \textbackslash{}vdots \& \textbackslash{}ddots \textbackslash{}\textbackslash{}
+        \textbackslash{}end\{matrix\} \textbackslash{}right)=
+         \textbackslash{}left (\textbackslash{}begin\{matrix\}
+        \textbackslash{}bar\textbackslash{}pi(1)\textbackslash{}\textbackslash{} \textbackslash{}bar\textbackslash{}pi(2) \textbackslash{}\textbackslash{} \textbackslash{}vdots \textbackslash{}\textbackslash{} \textbackslash{}bar\textbackslash{}pi(j)\textbackslash{}\textbackslash{} \textbackslash{}vdots  \textbackslash{}\textbackslash{}
+        \textbackslash{}end\{matrix\} \textbackslash{}right)\^{}\{-1\}
+        }}\label{left-beginmatrix-barpi1-barpi2-vdots-barpij-vdots-endmatrix-right-1-left-beginmatrix-p_11-p_12-cdots-p_1j-cdots-p_21-p_22-cdots-p_2j-cdots-vdots-vdots-ddots-vdots-cdots-p_i1-p_i2-cdots-p_ij-cdots-vdots-vdots-vdots-vdots-ddots-endmatrix-right-left-beginmatrix-barpi1-barpi2-vdots-barpij-vdots-endmatrix-right-1}
+
+\subsubsection{即满足：}\label{ux5373ux6ee1ux8db3}
+
+\subsubsection{\texorpdfstring{\[\bar\pi(j)=\sum_{i=1}^{\infty} \bar\pi(i)p_{ij}\]}{\textbackslash{}bar\textbackslash{}pi(j)=\textbackslash{}sum\_\{i=1\}\^{}\{\textbackslash{}infty\} \textbackslash{}bar\textbackslash{}pi(i)p\_\{ij\}}}\label{barpijsum_i1infty-barpiip_ij}
+
+\subsubsection{补充以下条件，联立知：}\label{ux8865ux5145ux4ee5ux4e0bux6761ux4ef6ux8054ux7acbux77e5}
+
+\subsubsection{\texorpdfstring{\[
+\begin{cases}
+\bar\pi(j)=\sum_{i=1}^{\infty} \bar\pi(i)p_{ij}\\
+\sum_{i=1}^{\infty} p_{ji}=1
+\end{cases}
+\Leftrightarrow
+\sum_{i=1}^{\infty} \bar\pi(j)p_{ji}=\sum_{i=1}^{\infty} \bar\pi(i)p_{ij}\]}{
+\textbackslash{}begin\{cases\}
+\textbackslash{}bar\textbackslash{}pi(j)=\textbackslash{}sum\_\{i=1\}\^{}\{\textbackslash{}infty\} \textbackslash{}bar\textbackslash{}pi(i)p\_\{ij\}\textbackslash{}\textbackslash{}
+\textbackslash{}sum\_\{i=1\}\^{}\{\textbackslash{}infty\} p\_\{ji\}=1
+\textbackslash{}end\{cases\}
+\textbackslash{}Leftrightarrow
+\textbackslash{}sum\_\{i=1\}\^{}\{\textbackslash{}infty\} \textbackslash{}bar\textbackslash{}pi(j)p\_\{ji\}=\textbackslash{}sum\_\{i=1\}\^{}\{\textbackslash{}infty\} \textbackslash{}bar\textbackslash{}pi(i)p\_\{ij\}}}\label{begincasesbarpijsum_i1infty-barpiip_ijsum_i1infty-p_ji1endcasesleftrightarrowsum_i1infty-barpijp_jisum_i1infty-barpiip_ij}
+
+\subsubsection{马尔可夫链的细致平稳(detailed
+balance)是状态链达到稳定状态的充分不必要条件：}\label{ux9a6cux5c14ux53efux592bux94feux7684ux7ec6ux81f4ux5e73ux7a33detailed-balanceux662fux72b6ux6001ux94feux8fbeux5230ux7a33ux5b9aux72b6ux6001ux7684ux5145ux5206ux4e0dux5fc5ux8981ux6761ux4ef6}
+
+\subsubsection{\texorpdfstring{\[\bar\pi(i)p_{ij}=\bar\pi(j)p_{ji}
+\Rightarrow
+\sum_{i=1}^{\infty} \bar\pi(j)p_{ji}=\sum_{i=1}^{\infty} \bar\pi(i)p_{ij}
+\]}{\textbackslash{}bar\textbackslash{}pi(i)p\_\{ij\}=\textbackslash{}bar\textbackslash{}pi(j)p\_\{ji\}
+\textbackslash{}Rightarrow
+\textbackslash{}sum\_\{i=1\}\^{}\{\textbackslash{}infty\} \textbackslash{}bar\textbackslash{}pi(j)p\_\{ji\}=\textbackslash{}sum\_\{i=1\}\^{}\{\textbackslash{}infty\} \textbackslash{}bar\textbackslash{}pi(i)p\_\{ij\}
+}}\label{barpiip_ijbarpijp_jirightarrowsum_i1infty-barpijp_jisum_i1infty-barpiip_ij}
+
+\subsubsection{\texorpdfstring{达到细致平稳时，马氏链由状态\(\bar\pi(i)\)转移到状态\(\bar\pi(j)\)的概率为\(p_{ij}\)，反之亦然，链的稳态条件即：两状态转移概率相等。}{达到细致平稳时，马氏链由状态\textbackslash{}bar\textbackslash{}pi(i)转移到状态\textbackslash{}bar\textbackslash{}pi(j)的概率为p\_\{ij\}，反之亦然，链的稳态条件即：两状态转移概率相等。}}\label{ux8fbeux5230ux7ec6ux81f4ux5e73ux7a33ux65f6ux9a6cux6c0fux94feux7531ux72b6ux6001barpiiux8f6cux79fbux5230ux72b6ux6001barpijux7684ux6982ux7387ux4e3ap_ijux53cdux4e4bux4ea6ux7136ux94feux7684ux7a33ux6001ux6761ux4ef6ux5373ux4e24ux72b6ux6001ux8f6cux79fbux6982ux7387ux76f8ux7b49}
+
+
+    % Add a bibliography block to the postdoc
+    
+    
+    
+    \end{document}
