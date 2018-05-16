@@ -284,7 +284,7 @@
 
     \subsection{一.马尔科夫链的一般结构}\label{ux4e00.ux9a6cux5c14ux79d1ux592bux94feux7684ux4e00ux822cux7ed3ux6784}
 
-\subsubsection{\texorpdfstring{马尔科夫链是一条状态链，可表示为\(\{\pi(1),\pi(2)\cdots \pi(i),\pi(j)\cdots\}\)，结合概率论的内容，可将某概率密度函数表示为如下形式：\[\lim_{n\to+\infty}\{\cdots ，\pi(-\frac{2}{n}),\pi(-\frac{1}{n}),\pi(0),\pi(\frac{1}{n}),\pi(\frac{2}{n}),\cdots\}\]且满足\[\int_{-\infty}^{+\infty} \pi(x)dx=1\]}{马尔科夫链是一条状态链，可表示为\textbackslash{}\{\textbackslash{}pi(1),\textbackslash{}pi(2)\textbackslash{}cdots \textbackslash{}pi(i),\textbackslash{}pi(j)\textbackslash{}cdots\textbackslash{}\}，结合概率论的内容，可将某概率密度函数表示为如下形式：\textbackslash{}lim\_\{n\textbackslash{}to+\textbackslash{}infty\}\textbackslash{}\{\textbackslash{}cdots ，\textbackslash{}pi(-\textbackslash{}frac\{2\}\{n\}),\textbackslash{}pi(-\textbackslash{}frac\{1\}\{n\}),\textbackslash{}pi(0),\textbackslash{}pi(\textbackslash{}frac\{1\}\{n\}),\textbackslash{}pi(\textbackslash{}frac\{2\}\{n\}),\textbackslash{}cdots\textbackslash{}\}且满足\textbackslash{}int\_\{-\textbackslash{}infty\}\^{}\{+\textbackslash{}infty\} \textbackslash{}pi(x)dx=1}}\label{ux9a6cux5c14ux79d1ux592bux94feux662fux4e00ux6761ux72b6ux6001ux94feux53efux8868ux793aux4e3api1pi2cdots-piipijcdotsux7ed3ux5408ux6982ux7387ux8bbaux7684ux5185ux5bb9ux53efux5c06ux67d0ux6982ux7387ux5bc6ux5ea6ux51fdux6570ux8868ux793aux4e3aux5982ux4e0bux5f62ux5f0flim_ntoinftycdots-pi-frac2npi-frac1npi0pifrac1npifrac2ncdotsux4e14ux6ee1ux8db3int_-inftyinfty-pixdx1}
+\subsubsection{\texorpdfstring{马尔科夫链是一条状态链，可表示为\(\{\pi(1),\pi(2)\cdots \pi(i),\pi(j)\cdots\}\)，结合概率论的内容，可将某概率密度函数\(F\)表示为如下形式：\[\lim_{n\to+\infty}\{\cdots ，F(-\frac{2}{n}),F(-\frac{1}{n}),F(0),F(\frac{1}{n}),F(\frac{2}{n}),\cdots\}\]且满足\[\int_{-\infty}^{+\infty} F(x)dx=1\]}{马尔科夫链是一条状态链，可表示为\textbackslash{}\{\textbackslash{}pi(1),\textbackslash{}pi(2)\textbackslash{}cdots \textbackslash{}pi(i),\textbackslash{}pi(j)\textbackslash{}cdots\textbackslash{}\}，结合概率论的内容，可将某概率密度函数F表示为如下形式：\textbackslash{}lim\_\{n\textbackslash{}to+\textbackslash{}infty\}\textbackslash{}\{\textbackslash{}cdots ，F(-\textbackslash{}frac\{2\}\{n\}),F(-\textbackslash{}frac\{1\}\{n\}),F(0),F(\textbackslash{}frac\{1\}\{n\}),F(\textbackslash{}frac\{2\}\{n\}),\textbackslash{}cdots\textbackslash{}\}且满足\textbackslash{}int\_\{-\textbackslash{}infty\}\^{}\{+\textbackslash{}infty\} F(x)dx=1}}\label{ux9a6cux5c14ux79d1ux592bux94feux662fux4e00ux6761ux72b6ux6001ux94feux53efux8868ux793aux4e3api1pi2cdots-piipijcdotsux7ed3ux5408ux6982ux7387ux8bbaux7684ux5185ux5bb9ux53efux5c06ux67d0ux6982ux7387ux5bc6ux5ea6ux51fdux6570fux8868ux793aux4e3aux5982ux4e0bux5f62ux5f0flim_ntoinftycdots-f-frac2nf-frac1nf0ffrac1nffrac2ncdotsux4e14ux6ee1ux8db3int_-inftyinfty-fxdx1}
 
 \subsubsection{\texorpdfstring{状态链的转移通过转移概率矩阵\(P=\{p_{ij}\}\)实现，\(P\)的结构如下:}{状态链的转移通过转移概率矩阵P=\textbackslash{}\{p\_\{ij\}\textbackslash{}\}实现，P的结构如下:}}\label{ux72b6ux6001ux94feux7684ux8f6cux79fbux901aux8fc7ux8f6cux79fbux6982ux7387ux77e9ux9635pp_ijux5b9eux73b0pux7684ux7ed3ux6784ux5982ux4e0b}
 
@@ -308,23 +308,67 @@
 
 \subsubsection{\texorpdfstring{其中每行元素满足和式\[\sum_{j=1}^{\infty} p_{ij}=1\]}{其中每行元素满足和式\textbackslash{}sum\_\{j=1\}\^{}\{\textbackslash{}infty\} p\_\{ij\}=1}}\label{ux5176ux4e2dux6bcfux884cux5143ux7d20ux6ee1ux8db3ux548cux5f0fsum_j1infty-p_ij1}
 
-\subsubsection{\texorpdfstring{转移概率矩阵若不为n阶幂等矩阵，则称具有该转移概率矩阵的马尔科夫过程具有遍历性，否则具有循环性，具有遍历性的马尔科夫过程，满足性质\[\lim_{n\to+\infty}p_{ij}^n=\bar\pi(j)\]可知\(P^n\)中元素只与列有关，格式如下：}{转移概率矩阵若不为n阶幂等矩阵，则称具有该转移概率矩阵的马尔科夫过程具有遍历性，否则具有循环性，具有遍历性的马尔科夫过程，满足性质\textbackslash{}lim\_\{n\textbackslash{}to+\textbackslash{}infty\}p\_\{ij\}\^{}n=\textbackslash{}bar\textbackslash{}pi(j)可知P\^{}n中元素只与列有关，格式如下：}}\label{ux8f6cux79fbux6982ux7387ux77e9ux9635ux82e5ux4e0dux4e3anux9636ux5e42ux7b49ux77e9ux9635ux5219ux79f0ux5177ux6709ux8be5ux8f6cux79fbux6982ux7387ux77e9ux9635ux7684ux9a6cux5c14ux79d1ux592bux8fc7ux7a0bux5177ux6709ux904dux5386ux6027ux5426ux5219ux5177ux6709ux5faaux73afux6027ux5177ux6709ux904dux5386ux6027ux7684ux9a6cux5c14ux79d1ux592bux8fc7ux7a0bux6ee1ux8db3ux6027ux8d28lim_ntoinftyp_ijnbarpijux53efux77e5pnux4e2dux5143ux7d20ux53eaux4e0eux5217ux6709ux5173ux683cux5f0fux5982ux4e0b}
+\subsubsection{\texorpdfstring{转移概率矩阵若不为n次幂等矩阵，则称具有该转移概率矩阵的马尔科夫过程具有遍历性，具有遍历性的马尔科夫过程，满足性质\[\lim_{n\to+\infty}p_{ij}^n=\bar\pi(j)\]可知\(P^n\)中元素只与列有关，格式如下：}{转移概率矩阵若不为n次幂等矩阵，则称具有该转移概率矩阵的马尔科夫过程具有遍历性，具有遍历性的马尔科夫过程，满足性质\textbackslash{}lim\_\{n\textbackslash{}to+\textbackslash{}infty\}p\_\{ij\}\^{}n=\textbackslash{}bar\textbackslash{}pi(j)可知P\^{}n中元素只与列有关，格式如下：}}\label{ux8f6cux79fbux6982ux7387ux77e9ux9635ux82e5ux4e0dux4e3anux6b21ux5e42ux7b49ux77e9ux9635ux5219ux79f0ux5177ux6709ux8be5ux8f6cux79fbux6982ux7387ux77e9ux9635ux7684ux9a6cux5c14ux79d1ux592bux8fc7ux7a0bux5177ux6709ux904dux5386ux6027ux5177ux6709ux904dux5386ux6027ux7684ux9a6cux5c14ux79d1ux592bux8fc7ux7a0bux6ee1ux8db3ux6027ux8d28lim_ntoinftyp_ijnbarpijux53efux77e5pnux4e2dux5143ux7d20ux53eaux4e0eux5217ux6709ux5173ux683cux5f0fux5982ux4e0b}
 
-\subsubsection{\texorpdfstring{\[
+\subsubsection{\texorpdfstring{\[ P^n=
         \left (\begin{matrix}
         \bar\pi(1) & \bar\pi(2) & \cdots &\bar\pi(j)& \cdots  \\
         \bar\pi(1)  & \bar\pi(2) & \cdots &\bar\pi(j)& \cdots \\
         \vdots & \vdots & \ddots & \vdots & \cdots \\
        \bar\pi(1) & \bar\pi(2) & \cdots & \bar\pi(j) & \cdots \\
         \vdots & \vdots & \vdots & \vdots & \ddots \\
-        \end{matrix} \right)\]}{
+        \end{matrix} \right)\]}{ P\^{}n=
         \textbackslash{}left (\textbackslash{}begin\{matrix\}
         \textbackslash{}bar\textbackslash{}pi(1) \& \textbackslash{}bar\textbackslash{}pi(2) \& \textbackslash{}cdots \&\textbackslash{}bar\textbackslash{}pi(j)\& \textbackslash{}cdots  \textbackslash{}\textbackslash{}
         \textbackslash{}bar\textbackslash{}pi(1)  \& \textbackslash{}bar\textbackslash{}pi(2) \& \textbackslash{}cdots \&\textbackslash{}bar\textbackslash{}pi(j)\& \textbackslash{}cdots \textbackslash{}\textbackslash{}
         \textbackslash{}vdots \& \textbackslash{}vdots \& \textbackslash{}ddots \& \textbackslash{}vdots \& \textbackslash{}cdots \textbackslash{}\textbackslash{}
        \textbackslash{}bar\textbackslash{}pi(1) \& \textbackslash{}bar\textbackslash{}pi(2) \& \textbackslash{}cdots \& \textbackslash{}bar\textbackslash{}pi(j) \& \textbackslash{}cdots \textbackslash{}\textbackslash{}
         \textbackslash{}vdots \& \textbackslash{}vdots \& \textbackslash{}vdots \& \textbackslash{}vdots \& \textbackslash{}ddots \textbackslash{}\textbackslash{}
-        \textbackslash{}end\{matrix\} \textbackslash{}right)}}\label{left-beginmatrix-barpi1-barpi2-cdots-barpij-cdots-barpi1-barpi2-cdots-barpij-cdots-vdots-vdots-ddots-vdots-cdots-barpi1-barpi2-cdots-barpij-cdots-vdots-vdots-vdots-vdots-ddots-endmatrix-right}
+        \textbackslash{}end\{matrix\} \textbackslash{}right)}}\label{pn-left-beginmatrix-barpi1-barpi2-cdots-barpij-cdots-barpi1-barpi2-cdots-barpij-cdots-vdots-vdots-ddots-vdots-cdots-barpi1-barpi2-cdots-barpij-cdots-vdots-vdots-vdots-vdots-ddots-endmatrix-right}
+
+\subsubsection{\texorpdfstring{证明：由n次幂矩阵的计算方法，作矩阵分解得\(P=A\Lambda A^{-1}\),其中\(\Lambda\)为对角矩阵，形式如下：}{证明：由n次幂矩阵的计算方法，作矩阵分解得P=A\textbackslash{}Lambda A\^{}\{-1\},其中\textbackslash{}Lambda为对角矩阵，形式如下：}}\label{ux8bc1ux660eux7531nux6b21ux5e42ux77e9ux9635ux7684ux8ba1ux7b97ux65b9ux6cd5ux4f5cux77e9ux9635ux5206ux89e3ux5f97palambda-a-1ux5176ux4e2dlambdaux4e3aux5bf9ux89d2ux77e9ux9635ux5f62ux5f0fux5982ux4e0b}
+
+\subsubsection{\texorpdfstring{\[ \Lambda=
+        \left (\begin{matrix}
+        \lambda_1 & 0 & \cdots& 0& \cdots  \\
+        0  & \lambda_2 & \cdots & 0 & \cdots \\
+        \vdots & \vdots & \ddots & \vdots & \cdots \\
+       0 & 0 & \cdots & \lambda_j & \cdots \\
+        \vdots & \vdots & \vdots & \vdots & \ddots \\
+        \end{matrix} \right)\]}{ \textbackslash{}Lambda=
+        \textbackslash{}left (\textbackslash{}begin\{matrix\}
+        \textbackslash{}lambda\_1 \& 0 \& \textbackslash{}cdots\& 0\& \textbackslash{}cdots  \textbackslash{}\textbackslash{}
+        0  \& \textbackslash{}lambda\_2 \& \textbackslash{}cdots \& 0 \& \textbackslash{}cdots \textbackslash{}\textbackslash{}
+        \textbackslash{}vdots \& \textbackslash{}vdots \& \textbackslash{}ddots \& \textbackslash{}vdots \& \textbackslash{}cdots \textbackslash{}\textbackslash{}
+       0 \& 0 \& \textbackslash{}cdots \& \textbackslash{}lambda\_j \& \textbackslash{}cdots \textbackslash{}\textbackslash{}
+        \textbackslash{}vdots \& \textbackslash{}vdots \& \textbackslash{}vdots \& \textbackslash{}vdots \& \textbackslash{}ddots \textbackslash{}\textbackslash{}
+        \textbackslash{}end\{matrix\} \textbackslash{}right)}}\label{lambda-left-beginmatrix-lambda_1-0-cdots-0-cdots-0-lambda_2-cdots-0-cdots-vdots-vdots-ddots-vdots-cdots-0-0-cdots-lambda_j-cdots-vdots-vdots-vdots-vdots-ddots-endmatrix-right}
+
+\subsubsection{\texorpdfstring{根据该分解易知\(P^n=A\Lambda^nA^{-1}\)}{根据该分解易知P\^{}n=A\textbackslash{}Lambda\^{}nA\^{}\{-1\}}}\label{ux6839ux636eux8be5ux5206ux89e3ux6613ux77e5pnalambdana-1}
+
+\subsubsection{\texorpdfstring{\[P=A\Lambda A^{-1}\Leftrightarrow 
+     PA=A\Lambda
+     \]}{P=A\textbackslash{}Lambda A\^{}\{-1\}\textbackslash{}Leftrightarrow 
+     PA=A\textbackslash{}Lambda
+     }}\label{palambda-a-1leftrightarrow-paalambda}
+
+\subsubsection{\texorpdfstring{\(A\)可以写作列向量组合\(\begin{bmatrix} A^1 & A^2 & \cdots & A^j & \cdots\\ \end{bmatrix}\)}{A可以写作列向量组合\textbackslash{}begin\{bmatrix\} A\^{}1 \& A\^{}2 \& \textbackslash{}cdots \& A\^{}j \& \textbackslash{}cdots\textbackslash{}\textbackslash{} \textbackslash{}end\{bmatrix\}}}\label{aux53efux4ee5ux5199ux4f5cux5217ux5411ux91cfux7ec4ux5408beginbmatrix-a1-a2-cdots-aj-cdots-endbmatrix}
+
+\subsubsection{\texorpdfstring{写成方程组形式则为\[\begin{split}  PA^i=\lambda_iA^i \quad (i=1,2,\cdots,j\cdots)\\
+                     (P-\lambda_i I)A^i=0 \quad (i=1,2,\cdots,j\cdots)\end{split}\]}{写成方程组形式则为\textbackslash{}begin\{split\}  PA\^{}i=\textbackslash{}lambda\_iA\^{}i \textbackslash{}quad (i=1,2,\textbackslash{}cdots,j\textbackslash{}cdots)\textbackslash{}\textbackslash{}
+                     (P-\textbackslash{}lambda\_i I)A\^{}i=0 \textbackslash{}quad (i=1,2,\textbackslash{}cdots,j\textbackslash{}cdots)\textbackslash{}end\{split\}}}\label{ux5199ux6210ux65b9ux7a0bux7ec4ux5f62ux5f0fux5219ux4e3abeginsplit-pailambda_iai-quad-i12cdotsjcdots-p-lambda_i-iai0-quad-i12cdotsjcdotsendsplit}
+
+\subsubsection{\texorpdfstring{则将求解矩阵\(A\)的问题转化为求解系数矩阵为\(P-\lambda_i I\)的齐次线性方程组}{则将求解矩阵A的问题转化为求解系数矩阵为P-\textbackslash{}lambda\_i I的齐次线性方程组}}\label{ux5219ux5c06ux6c42ux89e3ux77e9ux9635aux7684ux95eeux9898ux8f6cux5316ux4e3aux6c42ux89e3ux7cfbux6570ux77e9ux9635ux4e3ap-lambda_i-iux7684ux9f50ux6b21ux7ebfux6027ux65b9ux7a0bux7ec4}
+
+\subsubsection{\texorpdfstring{转移矩阵若为n次幂等矩阵，即满足：\[\Lambda^n =\Lambda \Leftrightarrow \lambda_i^n =\lambda_i\quad (i=1,2,\cdots,j\cdots)\\
+\Updownarrow\\
+\lambda_i\in\{0\}\cup\{\cos(\frac{2k\pi}{n-1} )+i\sin(\frac{2k\pi}{n-1} )|k=1,2,\cdots,n-1\}\quad (i=1,2,\cdots,j\cdots)\]}{转移矩阵若为n次幂等矩阵，即满足：\textbackslash{}Lambda\^{}n =\textbackslash{}Lambda \textbackslash{}Leftrightarrow \textbackslash{}lambda\_i\^{}n =\textbackslash{}lambda\_i\textbackslash{}quad (i=1,2,\textbackslash{}cdots,j\textbackslash{}cdots)\textbackslash{}\textbackslash{}
+\textbackslash{}Updownarrow\textbackslash{}\textbackslash{}
+\textbackslash{}lambda\_i\textbackslash{}in\textbackslash{}\{0\textbackslash{}\}\textbackslash{}cup\textbackslash{}\{\textbackslash{}cos(\textbackslash{}frac\{2k\textbackslash{}pi\}\{n-1\} )+i\textbackslash{}sin(\textbackslash{}frac\{2k\textbackslash{}pi\}\{n-1\} )\textbar{}k=1,2,\textbackslash{}cdots,n-1\textbackslash{}\}\textbackslash{}quad (i=1,2,\textbackslash{}cdots,j\textbackslash{}cdots)}}\label{ux8f6cux79fbux77e9ux9635ux82e5ux4e3anux6b21ux5e42ux7b49ux77e9ux9635ux5373ux6ee1ux8db3lambdan-lambda-leftrightarrow-lambda_in-lambda_iquad-i12cdotsjcdotsupdownarrowlambda_iin0cupcosfrac2kpin-1-isinfrac2kpin-1-k12cdotsn-1quad-i12cdotsjcdots}
+
+\subsubsection{(对于此处特征值的代数重数大于特征向量的代数重数的情况，引入Jordan标准型矩阵)}\label{ux5bf9ux4e8eux6b64ux5904ux7279ux5f81ux503cux7684ux4ee3ux6570ux91cdux6570ux5927ux4e8eux7279ux5f81ux5411ux91cfux7684ux4ee3ux6570ux91cdux6570ux7684ux60c5ux51b5ux5f15ux5165jordanux6807ux51c6ux578bux77e9ux9635}
+
+\subsubsection{此时该马尔科夫过程不具有遍历性}\label{ux6b64ux65f6ux8be5ux9a6cux5c14ux79d1ux592bux8fc7ux7a0bux4e0dux5177ux6709ux904dux5386ux6027}
 
     \subsection{二.稳定状态链的基本概念}\label{ux4e8c.ux7a33ux5b9aux72b6ux6001ux94feux7684ux57faux672cux6982ux5ff5}
 
@@ -369,16 +413,18 @@
 \subsubsection{\texorpdfstring{\[
 \begin{cases}
 \bar\pi(j)=\sum_{i=1}^{\infty} \bar\pi(i)p_{ij}\\
+\quad\\
 \sum_{i=1}^{\infty} p_{ji}=1
 \end{cases}
 \Leftrightarrow
 \sum_{i=1}^{\infty} \bar\pi(j)p_{ji}=\sum_{i=1}^{\infty} \bar\pi(i)p_{ij}\]}{
 \textbackslash{}begin\{cases\}
 \textbackslash{}bar\textbackslash{}pi(j)=\textbackslash{}sum\_\{i=1\}\^{}\{\textbackslash{}infty\} \textbackslash{}bar\textbackslash{}pi(i)p\_\{ij\}\textbackslash{}\textbackslash{}
+\textbackslash{}quad\textbackslash{}\textbackslash{}
 \textbackslash{}sum\_\{i=1\}\^{}\{\textbackslash{}infty\} p\_\{ji\}=1
 \textbackslash{}end\{cases\}
 \textbackslash{}Leftrightarrow
-\textbackslash{}sum\_\{i=1\}\^{}\{\textbackslash{}infty\} \textbackslash{}bar\textbackslash{}pi(j)p\_\{ji\}=\textbackslash{}sum\_\{i=1\}\^{}\{\textbackslash{}infty\} \textbackslash{}bar\textbackslash{}pi(i)p\_\{ij\}}}\label{begincasesbarpijsum_i1infty-barpiip_ijsum_i1infty-p_ji1endcasesleftrightarrowsum_i1infty-barpijp_jisum_i1infty-barpiip_ij}
+\textbackslash{}sum\_\{i=1\}\^{}\{\textbackslash{}infty\} \textbackslash{}bar\textbackslash{}pi(j)p\_\{ji\}=\textbackslash{}sum\_\{i=1\}\^{}\{\textbackslash{}infty\} \textbackslash{}bar\textbackslash{}pi(i)p\_\{ij\}}}\label{begincasesbarpijsum_i1infty-barpiip_ijquadsum_i1infty-p_ji1endcasesleftrightarrowsum_i1infty-barpijp_jisum_i1infty-barpiip_ij}
 
 \subsubsection{马尔可夫链的细致平稳(detailed
 balance)是状态链达到稳定状态的充分不必要条件：}\label{ux9a6cux5c14ux53efux592bux94feux7684ux7ec6ux81f4ux5e73ux7a33detailed-balanceux662fux72b6ux6001ux94feux8fbeux5230ux7a33ux5b9aux72b6ux6001ux7684ux5145ux5206ux4e0dux5fc5ux8981ux6761ux4ef6}
@@ -392,6 +438,9 @@ balance)是状态链达到稳定状态的充分不必要条件：}\label{ux9a6cu
 }}\label{barpiip_ijbarpijp_jirightarrowsum_i1infty-barpijp_jisum_i1infty-barpiip_ij}
 
 \subsubsection{\texorpdfstring{达到细致平稳时，马氏链由状态\(\bar\pi(i)\)转移到状态\(\bar\pi(j)\)的概率为\(p_{ij}\)，反之亦然，链的稳态条件即：两状态转移概率相等。}{达到细致平稳时，马氏链由状态\textbackslash{}bar\textbackslash{}pi(i)转移到状态\textbackslash{}bar\textbackslash{}pi(j)的概率为p\_\{ij\}，反之亦然，链的稳态条件即：两状态转移概率相等。}}\label{ux8fbeux5230ux7ec6ux81f4ux5e73ux7a33ux65f6ux9a6cux6c0fux94feux7531ux72b6ux6001barpiiux8f6cux79fbux5230ux72b6ux6001barpijux7684ux6982ux7387ux4e3ap_ijux53cdux4e4bux4ea6ux7136ux94feux7684ux7a33ux6001ux6761ux4ef6ux5373ux4e24ux72b6ux6001ux8f6cux79fbux6982ux7387ux76f8ux7b49}
+
+    \subsection{三.Metropolis Algorithm and
+Exampers}\label{ux4e09.metropolis-algorithm-and-exampers}
 
 
     % Add a bibliography block to the postdoc
